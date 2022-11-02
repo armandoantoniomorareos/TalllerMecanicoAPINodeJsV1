@@ -1,10 +1,10 @@
-const env = require("./env");
+require('dotenv').config();
 const config = {
     db:{
-        host: "localhost",
-        user:"armando",
-        password:"12345678",
-        database:"dbmechanics"
+        host: process.env.host,
+        user: process.env.user,
+        password: process.env.password,
+        database: process.env.database
     }
 };
 
