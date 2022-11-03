@@ -1,5 +1,5 @@
 const db = require("./db")
-
+require("dotenv").config();
 async function getServicesByClientId(clientId){
     try{
         const sql = `SELECT * FROM service WHERE idClient = ${clientId}`;
@@ -12,7 +12,8 @@ async function getServicesByClientId(clientId){
 async function getServices(){ //TODO pagination 
     try{
         const sql = "SELECT * FROM service JOIN (vehicle JOIN customer ON customer.id = vehicle.idClient) ON service.idClient = customer.id";
-        //console.log(sql);
+        console.log(sql);
+        console.log("HOST " + process.env.HOST;
         return await db.query(sql);
     }catch(err){
         return err;
