@@ -5,11 +5,13 @@ const app = express();
 const vehicleRouter = require("./routers/vehicle");
 const clientRouter = require("./routers/client");
 const serviceRouter = require("./routers/service");
+const login = require("./routers/login");
 
 app.use(express.json());
 app.use("/api/vehicle", vehicleRouter);
 app.use("/api/client", clientRouter);
 app.use("/api/service", serviceRouter);
+app.use("/api/user", login);
 
 const PORT  = process.env.PORT
 app.listen(PORT, (req, res) => {

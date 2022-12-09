@@ -15,8 +15,9 @@ exports.getVehicleById = async(req, res) =>{
 }
 
 exports.getClientVehicle = async(req, res)=>{
-    const {idClient} = req.body;
+    const {idClient} = req.params;
+    console.log("params --->"+idClient);
     const result = await vehicle.getClientVehicle(idClient);
     console.log(result);
-    res.json({response:result});
+    res.json({vehicle:result});
 }

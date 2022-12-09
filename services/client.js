@@ -21,7 +21,7 @@ async function createNewClient(name, address, telephone){
 
 async function getClientByName(name){
     try{
-        const sql = `SELECT * FROM customer WHERE name = '${name}'`;
+        const sql = `SELECT * FROM customer WHERE name = LIKE %'${name}'%`;
         return await db.query(sql);
     }catch(err){
         return err;
